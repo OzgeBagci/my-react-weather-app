@@ -4,22 +4,25 @@ import "./App.css";
 export default function App() {
   return (
     <div className="App">
-      <h1>Weather App</h1>
-      <footer>
-        This project was coded by{" "}
-        <a href="https://github.com/OzgeBagci">Øzge Bagci</a> and is{" "}
-        <a
-          href="https://github.com/OzgeBagci/my-react-weather-app"
-          target="_blank"
-        >
-          open-sourced on GitHub{" "}
-        </a>
-        and
-        <a href="https://weatherapp-reactproject.netlify.app/">
-          hosted on Netlify
-        </a>{" "}
-        © 2024
-      </footer>
+      <div className="container">
+        <h1>Weather App</h1>
+        <footer>
+          This project was coded by{" "}
+          <a href="https://github.com/OzgeBagci">Øzge Bagci</a> and is{" "}
+          <a
+            href="https://github.com/OzgeBagci/my-react-weather-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced on GitHub{" "}
+          </a>
+          and
+          <a href="https://weatherapp-reactproject.netlify.app/">
+            hosted on Netlify
+          </a>{" "}
+          © 2024
+        </footer>
+      </div>
     </div>
   );
 }
