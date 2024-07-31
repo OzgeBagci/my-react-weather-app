@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      wind: response.data.main.temp,
-      name: response.data.name,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      date: "Sunday, 08:00",
+      description: response.data.weather[0].description,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
+      wind: response.data.wind.speed,
+      city: response.data.city,
+      ready: true,
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
@@ -39,14 +42,14 @@ export default function Weather() {
         </form>
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>Sunday 08:00</li>
-          <li>{weatherData.description}</li>
+          <li>{weatherData.date}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-2">
           <div className="col-6">
             <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="sunny"
+              src={weatherData.iconUrl}
+              alt={weatherData.description}
               className="weather-image"
             />{" "}
             <span className="temperature">
@@ -65,8 +68,7 @@ export default function Weather() {
     );
   } else {
     const apiKey = "1494f5f7ob4a4dtd10b403df6ba9a052";
-    let city = "New York";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
