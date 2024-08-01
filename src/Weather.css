@@ -13,6 +13,9 @@
   margin: 20px 0 0 0;
 }
 
+.col-6 .condition {
+  margin-top: 20px;
+}
 .Weather ul {
   margin: 0;
   padding: 0;
@@ -26,7 +29,7 @@
 }
 
 .weather-image {
-  margin-bottom: -10px;
+  margin-bottom: 32px;
   margin-right: 10px;
   width: 64px;
 }

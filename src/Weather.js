@@ -10,7 +10,7 @@ export default function Weather(props) {
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       date: "Sunday, 08:00",
-      description: response.data.weather[0].description,
+      description: response.data.condition.description,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
       wind: response.data.wind.speed,
       city: response.data.city,
@@ -58,7 +58,7 @@ export default function Weather(props) {
             <span className="unit">°C</span>
           </div>
           <div className="col-6">
-            <ul>
+            <ul className="condition">
               <li>Humidity: {weatherData.humidity}% </li>
               <li>Wind: {weatherData.wind} </li>
             </ul>
