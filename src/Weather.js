@@ -8,12 +8,14 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
+      iconUrl:
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon_url}",
       wind: response.data.wind.speed,
       city: response.data.city,
       ready: true,
