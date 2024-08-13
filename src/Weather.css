@@ -4,6 +4,7 @@
   color: rgb(135, 135, 135);
   padding: 16px;
   border-radius: 4px;
+  margin-bottom: 20px;
 }
 
 .Weather h1 {
@@ -11,6 +12,10 @@
   font-weight: 100;
   line-height: 29px;
   margin: 20px 0 0 0;
+}
+
+.col-6 {
+  margin-bottom: -30px;
 }
 
 .col-6 .condition {
@@ -29,7 +34,8 @@
 }
 
 .Weather img {
-  margin-bottom: 32px;
+  margin-bottom: 34px;
+  max-width: 40%;
 }
 
 .Weather .temperature {
