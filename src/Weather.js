@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -17,6 +18,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       city: response.data.city,
       ready: true,
+      condition: response.data.condition,
     });
   }
 
@@ -25,6 +27,7 @@ export default function Weather(props) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
+
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -33,6 +36,7 @@ export default function Weather(props) {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -57,6 +61,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast data={weatherData} />
       </div>
     );
   } else {
