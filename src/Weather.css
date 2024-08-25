@@ -35,7 +35,7 @@
 
 .Weather img {
   margin-bottom: 34px;
-  max-width: 40%;
+  max-width: 100%;
 }
 
 .Weather .temperature {
