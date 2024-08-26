@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Weather from "./Weather";
 
 export default function App() {
+  const [unit, setUnit] = useState("celsius");
+
+  function handleUnitChange(newUnit) {
+    setUnit(newUnit);
+  }
+
   return (
     <div className="App">
       <div className="container">
-        <Weather defaultCity="New York" />
+        <Weather
+          defaultCity="New York"
+          unit={unit}
+          onUnitChange={handleUnitChange}
+        />
         <footer>
           This project was coded by{" "}
           <a href="https://github.com/OzgeBagci">Øzge Bagci</a> and is{" "}

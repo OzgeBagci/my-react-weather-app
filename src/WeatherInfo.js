@@ -1,26 +1,29 @@
 import React from "react";
-import FormatedDate from "./FormatedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import FormatedDate from "./FormatedDate";
+import "./Weather.css";
 
 export default function WeatherInfo(props) {
   return (
-    <div className="WeatherInfo">
+    <div>
       <h1>{props.data.city}</h1>
       <ul>
         <li>
           <FormatedDate date={props.data.date} />
         </li>
-        <li className="text-capitalize">{props.data.description}</li>
+        <li>{props.data.description}</li>
+        <img src={props.data.icon_url} alt="forecast-icon" />
+        <WeatherTemperature
+          celsius={props.data.temperature}
+          unit={props.unit}
+          onUnitChange={props.onUnitChange}
+        />
       </ul>
-      <div className="row mt-2">
-        <div className="col-6">
-          <img src={props.data.icon_url} alt={props.data.description} />{" "}
-          <WeatherTemperature celsius={props.data.temperature} />
-        </div>
-        <div className="col-6">
-          <ul className="condition">
-            <li>Humidity: {props.data.humidity}% </li>
-            <li>Wind: {props.data.wind} </li>
+      <div className="row mt-3">
+        <div>
+          <ul>
+            <li>Humidity: {props.data.humidity}%</li>
+            <li>Wind: {props.data.wind} km/h</li>
           </ul>
         </div>
       </div>
