@@ -19,16 +19,27 @@ export default function App() {
         />
         <footer>
           This project was coded by{" "}
-          <a href="https://github.com/OzgeBagci">Øzge Bagci</a> and is{" "}
+          <a
+            href="https://github.com/OzgeBagci"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Øzge Bagci
+          </a>{" "}
+          and is{" "}
           <a
             href="https://github.com/OzgeBagci/my-react-weather-app"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             open-sourced on GitHub{" "}
           </a>
           and{" "}
-          <a href="https://weatherapp-reactproject.netlify.app/">
+          <a
+            href="https://weatherapp-reactproject.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             hosted on Netlify
           </a>{" "}
           © 2024
