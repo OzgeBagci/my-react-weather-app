@@ -73,7 +73,11 @@ export default function Weather(props) {
           onUnitChange={handleUnitChange}
         />
 
-        <WeatherForecast coordinates={weatherData.coordinates} unit={unit} />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          unit={unit}
+          description={weatherData.description}
+        />
       </div>
     );
   } else {

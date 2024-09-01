@@ -27,8 +27,11 @@
 }
 
 .Weather img {
-  margin-bottom: 34px;
   max-width: 100%;
+}
+
+.main-forecast-icon {
+  margin-bottom: 34px;
 }
 
 .Weather .temperature {
